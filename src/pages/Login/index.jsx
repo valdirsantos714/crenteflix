@@ -20,7 +20,7 @@ export const Login = () => {
                 <label htmlFor="senha" className="text-[1.4rem]">Senha:   </label>
                 <input type="password" onChange={atualizaSenha} placeholder="Digite sua senha" className="p-[0.3rem] text-[1.2rem]" required/>
 
-                <button type="submit" onClick={logar}  className="bg-blue-600 rounded-[2rem] w-[50%] m-auto mt-[1rem] p-[0.7rem] text-[1.7rem]">
+                <button type="submit" onClick={logar}  className="bg-vermelho text-branco rounded-[2rem] w-[50%] m-auto mt-[1rem] p-[0.7rem] text-[1.7rem]">
                     Entrar
                 </button>
 

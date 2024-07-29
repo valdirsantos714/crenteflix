@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import { useGlobalContext } from "../../hooks/useGlobalContext"
 
 export const Cadastro = () => {
-    const {atualizaEmail, atualizaSenha, logar} = useGlobalContext()
+    const {atualizaEmail, atualizaSenha, cadastrar} = useGlobalContext()
 
 
     return (
@@ -20,8 +20,8 @@ export const Cadastro = () => {
                 <label htmlFor="senha" className="text-[1.4rem]">Senha:   </label>
                 <input type="password" onChange={atualizaSenha} placeholder="Digite sua senha" className="p-[0.3rem] text-[1.2rem]" required/>
 
-                <button type="submit" onClick={logar}  className="bg-blue-600 rounded-[2rem] w-[50%] m-auto mt-[1rem] p-[0.7rem] text-[1.7rem]">
-                    Entrar
+                <button type="submit" onClick={cadastrar}  className="bg-vermelho text-branco rounded-[2rem] w-[50%] m-auto mt-[1rem] p-[0.7rem] text-[1.4rem]">
+                    Cadastrar-se
                 </button>
 
                 <Link to={"/login"}>Já tem conta então faça Login</Link>

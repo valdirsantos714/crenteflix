@@ -33,6 +33,30 @@ export const useGlobalContext = () => {
         }
     }
 
+    const cadastrar = async (e) => {
+        if (email === "" || senha === "") {
+            alert("Preencha os campos!")
+
+        } else {
+            e.preventDefault()
+            try {
+                const token = await cadastrar(email, senha);
+
+                setApiKey(token)
+                console.log(apiKey);
+                console.log("O email: " + email);
+                console.log("A senha: " + senha);
+                //navigate("/admin/opcoes")
+
+
+            } catch (e) {
+                console.log("Deu erro ao fazer login: " + e);
+            }
+        }
+    }
+
+
+
     const atualizaEmail = (e) => {
         setEmail(e.target.value)
     }
@@ -42,7 +66,7 @@ export const useGlobalContext = () => {
     }
 
     return {
-        atualizaEmail, atualizaSenha, logar
+        atualizaEmail, atualizaSenha, logar, cadastrar
     };
 
 }
