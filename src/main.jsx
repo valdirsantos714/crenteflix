@@ -4,6 +4,9 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import { Header } from './pages/components/Header'
 import { Home } from './pages/Home'
 import "./index.css"
+import { Login } from './pages/Login'
+import { Cadastro } from './pages/Cadastro'
+import { GlobalProvider } from './context/GlobalContext'
 
 const rotas = createBrowserRouter([
   {
@@ -13,12 +16,20 @@ const rotas = createBrowserRouter([
       {
         path: "/",
         element: <Home/>
+      },
+      {
+        path: "/login",
+        element: <Login/>
+      },
+      {
+        path: "/cadastro",
+        element: <Cadastro/>
       }
     ]
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <GlobalProvider>
     <RouterProvider router={rotas}/>
-  </React.StrictMode>,
+  </GlobalProvider>,
 )
