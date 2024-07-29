@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export const Banner = () => {
     return (
         <section>
-            <div className="bg-[url('./imgs/banner.jpg')] p-[1rem] flex flex-col h-[90vh] justify-center items-center">
+            <div className="bg-[url('/imgs/banner.jpg')] p-[1rem] flex flex-col h-[90vh] justify-center items-center">
                 <div className="bg-preto/70 flex-col flex gap-[1rem] rounded-lg p-[1rem]">
                     <h2 className=" bg-transparent  text-[1.8rem] text-center 2xl:text-[2.2rem]">Filmes e séries gospel, grátis e sem limites</h2>
                     <p className=" bg-transparent text-[1.6rem] text-center">Assista onde quiser. Totalmente de graça </p>

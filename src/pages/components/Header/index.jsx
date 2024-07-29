@@ -42,7 +42,7 @@ export const Header = () => {
         
         {/*Header mobile */}
         <header className="flex gap-[1.5rem] items-center relative lg:hidden pl-[0.7rem] ">
-            <span onClick={revelaLista} className="w-[50px] h-[50px] bg-[url('./imgs/barras.svg')]  bg-cover bg-center bg-no-repeat lg:hidden"></span>
+            <span onClick={revelaLista} className="w-[50px] h-[50px] bg-[url('/imgs/barras.svg')]  bg-cover bg-center bg-no-repeat lg:hidden"></span>
             <img src="./imgs/logo.png" alt="Logo" className="w-[50%] h-[10%]" />
 
             {abrirLista && (
