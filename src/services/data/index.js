@@ -14,10 +14,6 @@ export const findAll = async () => {
 
 export const save = async (apiKey ,nome, imgUrl, descricao, linkAssistir, duracaoFilme, anoLancamento, faixaEtaria) => {
 
-    /*if (duracaoFilme === null || duracaoFilme === "" || anoLancamento === null || anoLancamento === "" || faixaEtaria === null || faixaEtaria === "") {
-        
-    }*/
-
     try {
         const response = await fetch(`${api}/conteudo`, 
     {
@@ -43,5 +39,18 @@ export const save = async (apiKey ,nome, imgUrl, descricao, linkAssistir, duraca
 
     } catch (e) {
         console.log("Deu erro ao salvar conteúdo " + e);
+    }
+}
+
+
+export const findById = async (id) => {
+    try {
+        const response = await fetch(`${api}/conteudo/${id}`);
+
+        const data = await response.json();
+        return data;
+
+    } catch (e) {
+        console.log("Deu erro ao procurar conteúdo pelo id " + e);
     }
 }

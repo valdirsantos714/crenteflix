@@ -1,48 +1,8 @@
-import { useState } from "react";
-import { findAll } from "../../services/data"
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useProcuraConteudo } from "../../hooks/useProcuraConteudo"
 
 export const Filmes = () => {
 
-    const [filmes, setFilmes] = useState([])
-
-    useEffect(() => {
-        dados()
-    },[])
-
-
-    const dados = async () => {
-        try {
-            const data = await findAll();
-
-            setFilmes(data);
-            console.log(filmes);
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-    const amostraFilmes = () => {
-        if (Array.isArray(filmes)) {
-            return filmes.map((f) => (
-                    
-                <li key={f.id} className=" w-[50%]">
-                    <Link>
-                        <img src={`${f.imgUrl}`} alt="Imagem do filme" className="w-[80%] m-auto mb-[0.7rem]" />
-                    </Link>
-                </li>
-            
-        )) 
-        } else {
-            return (
-                <div className="items-center justify-center flex flex-col">
-            <div className="w-[24px] h-[24px] p-[1rem] animate-spin  border-[10px] border-vermelho border-b-transparent bg-transparent rounded-[50%]"></div>
-            <p className="pt-[1rem] text-center">Carregando...</p>
-            </div>
-        )
-        }
-    }
+    const {amostraFilmes} = useProcuraConteudo()
 
     return (
         <main>
