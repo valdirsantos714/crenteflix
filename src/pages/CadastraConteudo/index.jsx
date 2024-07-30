@@ -3,7 +3,7 @@ import { useCadastroConteudo } from "../../hooks/useCadastroConteudo"
 
 export const CadastraConteudo = () => {
 
-    const {atualizaAnoLancamento, atualizaDescricao, atualizaDuracaoFilme, atualizaImgUrl, atualizaLinkAssistir, atualizaNome, atualizaFaixaEtaria}= useCadastroConteudo()
+    const {atualizaAnoLancamento, atualizaDescricao, atualizaDuracaoFilme, atualizaImgUrl, atualizaLinkAssistir, atualizaNome, atualizaFaixaEtaria, salvaConteudo} = useCadastroConteudo()
 
     return (
         <main >
@@ -12,7 +12,7 @@ export const CadastraConteudo = () => {
             <h2 className="text-[2rem] text-center">Cadastro de conteúdo</h2>
             <p className="text-[1.4rem] text-center">Cadastre filmes ou séries</p>
             
-            <form className="flex flex-col flex-wrap gap-[0.5rem] p-[0.5rem]">
+            <form onSubmit={salvaConteudo} className="flex flex-col flex-wrap gap-[0.5rem] p-[0.5rem]">
 
                 <div className="flex flex-row gap-[1rem] items-center pt-[1rem]">
                 <label className="text-[1.4rem]" >Tipo:</label>
@@ -42,7 +42,7 @@ export const CadastraConteudo = () => {
 
                 <Input textoLabel={"Classificação etária"} idInput={"classificacaoEtaria"} placeholder={"Digite a Classificação etária"} onChange={atualizaFaixaEtaria}/>
 
-                <button type="submit"   className="bg-vermelho text-branco rounded-[2rem] w-[50%] m-auto mt-[1rem] p-[0.7rem] text-[1.4rem]">
+                <button type="submit" className="bg-vermelho text-branco rounded-[2rem] w-[50%] m-auto mt-[1rem] p-[0.7rem] text-[1.4rem]">
                     Cadastrar Conteúdo
                 </button>
                 

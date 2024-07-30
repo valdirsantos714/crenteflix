@@ -27,9 +27,9 @@ export const Filmes = () => {
         if (Array.isArray(filmes)) {
             return filmes.map((f) => (
                     
-                <li key={f.id} className=" w-[80%] ">
+                <li key={f.id} className=" w-[50%]">
                     <Link>
-                        <img src={`${f.imgUrl}`} alt="Imagem do filme" className="" />
+                        <img src={`${f.imgUrl}`} alt="Imagem do filme" className="w-[80%] m-auto mb-[0.7rem]" />
                     </Link>
                 </li>
             
@@ -54,10 +54,11 @@ export const Filmes = () => {
             </section>
 
 
-            <section className="">
-                <ul className=" flex flex-row items-center justify-center  p-[1rem] gap-[0.5rem]">
+            <section className="" >
+                <ul className=" flex flex-row items-center justify-center   w-full flex-wrap text-center p-[1rem]">
                     {amostraFilmes()}
                 </ul>
+                <h2>ss</h2>
             </section>
         </main>
     )

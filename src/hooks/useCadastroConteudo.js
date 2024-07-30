@@ -1,5 +1,7 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { atualizaValores } from "../services/data/atualizaValores";
+import {GlobalContext} from "../context/GlobalContext"
+import { save } from "../services/data";
 
 export const useCadastroConteudo = () => {
     const [nome, setNome] = useState("");
@@ -9,6 +11,21 @@ export const useCadastroConteudo = () => {
     const [duracaoFilme, setDuracaoFilme] = useState("");
     const [anoLancamento, setAnoLancamento] = useState("");
     const [faixaEtaria, setFaixaEtaria] = useState("");
+
+    const {apiKey} = useContext(GlobalContext)
+
+    const salvaConteudo = async (e) => {
+        e.preventDefault();
+        try {
+            
+            const response = await save(apiKey, nome, imgUrl, descricao, linkAssistir, duracaoFilme, anoLancamento);
+
+            console.log(response);
+
+        } catch (error) {
+            console.log("Não salvou");
+        }
+    }
 
     const atualizaNome = (e) => {
         atualizaValores(e, setNome)
@@ -45,6 +62,7 @@ export const useCadastroConteudo = () => {
         atualizaDuracaoFilme,
         atualizaImgUrl,
         atualizaLinkAssistir,
-        atualizaFaixaEtaria
+        atualizaFaixaEtaria, 
+        salvaConteudo
     }
 }
