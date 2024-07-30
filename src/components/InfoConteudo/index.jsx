@@ -1,34 +1,44 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+import {useProcuraConteudo} from "../../hooks/useProcuraConteudo"
+
 export const InfoConteudo = () => {
+
+    const [video, setVideo]= useState([])
 
     const params = useParams()
 
-    const [conteudo, setConteudo] = useState([])
-
-    const conteudoCerto = 
+    const {procuraConteudoPorId} = useProcuraConteudo();
 
     useEffect(() => {
-        dados()
-    }, [])
+        atualizaVideo()
+    },[])
 
-    const dados = async () => {
-        try {
-            const data = await findAll();
+    const atualizaVideo = async() => {
+        const data = await procuraConteudoPorId(params.id)
+        setVideo(data)
+        
+        console.log(video.nome);
+    }
 
-            setConteudo(data);
-            console.log(conteudo);
-        } catch (error) {
-            console.log(error);
-        }
+    const amostraVideo = () => {
+        
+            <iframe width="560"
+            height="315"
+            src={`${video.linkAssistir}`}
+            title={`${video.nome}`}
+           frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        
+        
     }
 
     return (
         <main>
 
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/yL3lJfpenAc?si=HxEk9zfq5jOhbwea" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+            {amostraVideo()}
         </main>
     )
 }

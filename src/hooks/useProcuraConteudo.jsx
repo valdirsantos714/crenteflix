@@ -6,10 +6,12 @@ export const useProcuraConteudo = () => {
 
     const [filmes, setFilmes] = useState([])
 
-    const [id, setId] = useState("")
+   
+
 
     useEffect(() => {
         procuraTodosOsConteudos()
+        procuraConteudoPorId(1)
     },[])
     
     const procuraTodosOsConteudos = async () => {
@@ -26,14 +28,12 @@ export const useProcuraConteudo = () => {
         }
     }
 
-    const procuraConteudoPorId = async (e) => {
-        e.preventDefault();
+    const procuraConteudoPorId = async (id) => {
+        
         try {
             
-            const data = await findById(id);
-
-            setFilmes(data)
-            console.log(data);
+            const data = await findById(id)
+            return data
 
         } catch (error) {
             console.log("Não conseguiu achar nenhum conteudo");
@@ -41,14 +41,17 @@ export const useProcuraConteudo = () => {
     }
 
     const amostraFilmes = () => {
+        
         if (Array.isArray(filmes)) {
             return filmes.map((f) => (
                     
                 <li key={f.id} className=" w-[50%]">
-                    <Link>
+                    <Link to={`/conteudo/${f.id}`}>
                         <img src={`${f.imgUrl}`} alt="Imagem do filme" className="w-[80%] m-auto mb-[0.7rem]" />
                     </Link>
                 </li>
+
+            
             
         )) 
         } else {
@@ -62,7 +65,7 @@ export const useProcuraConteudo = () => {
     }
 
     return {
-        amostraFilmes, procuraConteudoPorId, procuraTodosOsConteudos, id, setId, 
+        amostraFilmes, procuraConteudoPorId, procuraTodosOsConteudos
     }
 
 }
