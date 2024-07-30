@@ -24,7 +24,7 @@ export const useGlobalContext = () => {
                 console.log(apiKey);
                 console.log("O email: " + email);
                 console.log("A senha: " + senha);
-                //navigate("/admin/opcoes")
+                navigate("/cadastroconteudo")
 
 
             } catch (e) {
