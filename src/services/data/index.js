@@ -36,7 +36,7 @@ export const findSeries= async () => {
     }
 }
 
-export const save = async (apiKey ,nome, imgUrl, descricao, linkAssistir, duracaoFilme, anoLancamento, faixaEtaria) => {
+export const save = async (apiKey, categoria, nome, imgUrl, descricao, linkAssistir, duracaoFilme, anoLancamento, faixaEtaria) => {
 
     try {
         const response = await fetch(`${api}/conteudo`, 
@@ -47,7 +47,7 @@ export const save = async (apiKey ,nome, imgUrl, descricao, linkAssistir, duraca
             'Authorization': `Bearer ${apiKey}` 
 
         }, body: JSON.stringify({
-            categoria: "FILME",
+            categoria: categoria,
             nome: nome,
             imgUrl: imgUrl,
             descricao: descricao,

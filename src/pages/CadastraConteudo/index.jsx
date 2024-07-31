@@ -1,11 +1,28 @@
+import { useContext } from "react"
 import { Input } from "../../components/Input"
 import { useCadastroConteudo } from "../../hooks/useCadastroConteudo"
+import { GlobalContext } from "../../context/GlobalContext"
 
 export const CadastraConteudo = () => {
 
-    const {atualizaAnoLancamento, atualizaDescricao, atualizaDuracaoFilme, atualizaImgUrl, atualizaLinkAssistir, atualizaNome, atualizaFaixaEtaria, salvaConteudo} = useCadastroConteudo()
+    const {atualizaAnoLancamento, atualizaDescricao, atualizaDuracaoFilme, atualizaImgUrl, atualizaLinkAssistir, atualizaNome, atualizaFaixaEtaria, salvaConteudo, setCategoria} = useCadastroConteudo()
+
+    const {apiKey} = useContext(GlobalContext)
+
+    const mudaPraFilme = () => {
+        setCategoria("FILME")
+        console.log("filme");
+    }
+
+    const mudaPraSerie = () => {
+        setCategoria("SERIE")
+        console.log("serie");
+    }
+
 
     return (
+        <>
+        {apiKey ? (
         <main >
         <section className="" >
         <div className="flex flex-col gap-[1rem] p-[1rem] items-center justify-center">
@@ -18,23 +35,25 @@ export const CadastraConteudo = () => {
                 <label className="text-[1.4rem]" >Tipo:</label>
                 <label className="text-[1.4rem]">
 
-                    <input className="mr-[0.3rem]" type="radio" name="conteudo" id="filme" />
+                    <input className="mr-[0.3rem]" type="radio" name="conteudo" id="filme" onClick={mudaPraFilme}/>
                     Filme
                 </label>
 
                 <label className="text-[1.4rem]">
-                    <input className="mr-[0.3rem]" type="radio" name="conteudo" id="serie" />
+                    <input className="mr-[0.3rem]" type="radio" name="conteudo" id="serie" onClick={mudaPraSerie}/>
                     Série
                 </label>
                 </div>
 
-                <Input textoLabel={"Nome do Conteúdo"} idInput={"nome"} placeholder={"Digite o nome do conteúdo"} onChange={atualizaNome}/>
+                <Input textoLabel={"Nome do Conteúdo: *Obrigatório"} idInput={"nome"} placeholder={"Digite o nome do conteúdo"} onChange={atualizaNome}/>
 
-                <Input textoLabel={"URL da imagem do conteúdo"} idInput={"imgUrl"} placeholder={"Digite a URL da imagem do conteúdo"} onChange={atualizaImgUrl}/>
+                <Input textoLabel={"URL da imagem do conteúdo: *Obrigatório"} idInput={"imgUrl"} placeholder={"Digite a URL da imagem do conteúdo"} onChange={atualizaImgUrl}/>
+                <p className="bg-yellow-500 text-preto p-[0.3rem] mb-[0.5rem] text-[1rem]">Digite uma url que foi feita upload, de preferência na imgur</p>
 
                 <Input textoLabel={"Descrição do Conteúdo"} idInput={"descricao"} placeholder={"Digite a descrição do Conteúdo"} onChange={atualizaDescricao}/>
 
-                <Input textoLabel={"Link para assistir o conteúdo"} idInput={"linkAssistir"} placeholder={"Digite o Link para assistir o conteúdo"} onChange={atualizaLinkAssistir}/>
+                <Input textoLabel={"Link para assistir o conteúdo: *Obrigatório"} idInput={"linkAssistir"} placeholder={"Digite o Link para assistir o conteúdo"} onChange={atualizaLinkAssistir}/>
+                <p className="bg-yellow-500 text-preto p-[0.3rem] mb-[0.5rem] text-[1rem]">Se for do Youtube, clique em compartilhar e em incorporar e copie e cole o link que está depois do atributo src</p>
 
                 <Input textoLabel={"Duração do filme"} idInput={"duracaoFilme"} placeholder={"Digite a Duração do filme"} onChange={atualizaDuracaoFilme}/>
 
@@ -45,11 +64,19 @@ export const CadastraConteudo = () => {
                 <button type="submit" className="bg-vermelho text-branco rounded-[2rem] w-[50%] m-auto mt-[1rem] p-[0.7rem] text-[1.4rem]">
                     Cadastrar Conteúdo
                 </button>
-                
-            </form>
+                </form>
+                </div>
+            </section>
+        </main>
+
+        ): (
+            <div className="flex flex-col gap-[1rem] p-[1rem] items-center justify-center">
+                <p className="text-[1.5rem] text-center cursor-not-allowed m-auto">Você não pode cadastrar conteúdo, porque você não está cadastrado no sistema, cadastre-se e tente novamente</p>
             </div>
-        </section>
-    </main>
+        )}
+        
+               
+        </>
 
     )
 }

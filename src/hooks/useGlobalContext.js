@@ -14,7 +14,7 @@ export const useGlobalContext = () => {
     const logar = async (e) => {
         if (email === "" || senha === "") {
             alert("Preencha os campos!")
-
+            
         } else {
             e.preventDefault()
             try {
@@ -24,7 +24,14 @@ export const useGlobalContext = () => {
                 console.log(apiKey);
                 console.log("O email: " + email);
                 console.log("A senha: " + senha);
-                navigate("/cadastroconteudo")
+                
+                if (apiKey != "") {
+                    navigate("/cadastroconteudo")
+                } else {
+                    alert("Login ou senha inválidos!")
+                    throw new Error("Login ou senha inválidos!")
+                }
+                
 
 
             } catch (e) {

@@ -4,6 +4,8 @@ import {GlobalContext} from "../context/GlobalContext"
 import { save } from "../services/data";
 
 export const useCadastroConteudo = () => {
+
+    const [categoria, setCategoria] = useState("")
     const [nome, setNome] = useState("");
     const [imgUrl, setImgUrl] = useState("");
     const [descricao, setDescricao] = useState("");
@@ -18,7 +20,7 @@ export const useCadastroConteudo = () => {
         e.preventDefault();
         try {
             
-            const response = await save(apiKey, nome, imgUrl, descricao, linkAssistir, duracaoFilme, anoLancamento);
+            const response = await save(apiKey, categoria, nome, imgUrl, descricao, linkAssistir, duracaoFilme, anoLancamento);
 
             console.log(response);
 
@@ -63,6 +65,7 @@ export const useCadastroConteudo = () => {
         atualizaImgUrl,
         atualizaLinkAssistir,
         atualizaFaixaEtaria, 
-        salvaConteudo
+        salvaConteudo,
+        setCategoria
     }
 }
