@@ -12,6 +12,30 @@ export const findAll = async () => {
     }
 }
 
+export const findFilmes = async () => {
+    try {
+        const response = await fetch(`${api}/conteudo/filmes`);
+
+        const data = await response.json();
+        return data;
+
+    } catch (e) {
+        console.log("Deu erro ao procurar conteúdo " + e);
+    }
+}
+
+export const findSeries= async () => {
+    try {
+        const response = await fetch(`${api}/conteudo/series`);
+
+        const data = await response.json();
+        return data;
+
+    } catch (e) {
+        console.log("Deu erro ao procurar conteúdo " + e);
+    }
+}
+
 export const save = async (apiKey ,nome, imgUrl, descricao, linkAssistir, duracaoFilme, anoLancamento, faixaEtaria) => {
 
     try {

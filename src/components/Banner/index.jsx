@@ -10,7 +10,7 @@ export const Banner = () => {
 
                     <Link className="hover:cursor-pointer bg-preto text-branco hover:opacity-[85%]  2xl:text-[1.8rem] p-[0.5rem] rounded-lg  text-[1.5rem] text-center" to={"/filmes"}>Ver Filmes </Link>
 
-                    <Link className=" hover:cursor-pointer bg-branco/80 text-preto hover:opacity-[85%]  2xl:text-[1.8rem] p-[0.5rem] rounded-lg  text-[1.5rem] text-center ">Ver Séries </Link>
+                    <Link to={"/series"} className=" hover:cursor-pointer bg-branco/80 text-preto hover:opacity-[85%]  2xl:text-[1.8rem] p-[0.5rem] rounded-lg  text-[1.5rem] text-center ">Ver Séries </Link>
 
                     <Link to={"/login"} className="hover:cursor-pointer bg-vermelho text-branco hover:opacity-[85%]  2xl:text-[1.8rem] p-[0.5rem] rounded-lg  text-[1.5rem] text-center">Adicionar mais filmes ou séries</Link>
                 </div>

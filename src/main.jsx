@@ -10,6 +10,7 @@ import { GlobalProvider } from './context/GlobalContext'
 import { Filmes } from './pages/Filmes'
 import { CadastraConteudo } from './pages/CadastraConteudo'
 import { InfoConteudo } from './components/InfoConteudo'
+import { Series } from './pages/Series'
 
 const rotas = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const rotas = createBrowserRouter([
       {
         path: "/conteudo/:id",
         element: <InfoConteudo/>
+      },
+      {
+        path: "/series",
+        element: <Series/>
       }
     ]
   }
