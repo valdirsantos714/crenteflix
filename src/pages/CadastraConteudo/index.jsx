@@ -26,20 +26,20 @@ export const CadastraConteudo = () => {
         <main >
         <section className="" >
         <div className="flex flex-col gap-[1rem] p-[1rem] items-center justify-center">
-            <h2 className="text-[2rem] text-center">Cadastro de conteúdo</h2>
-            <p className="text-[1.4rem] text-center">Cadastre filmes ou séries</p>
+            <h2 className="text-[2rem] text-center 2xl:text-[2.4rem]">Cadastro de conteúdo</h2>
+            <p className="text-[1.4rem] text-center 2xl:text-[2rem]">Cadastre filmes ou séries</p>
             
             <form onSubmit={salvaConteudo} className="flex flex-col flex-wrap gap-[0.5rem] p-[0.5rem]">
 
                 <div className="flex flex-row gap-[1rem] items-center pt-[1rem]">
-                <label className="text-[1.4rem]" >Tipo:</label>
-                <label className="text-[1.4rem]">
+                <label className="text-[1.2rem] 2xl:text-[1.6rem]" >Tipo: *Obrigatório</label>
+                <label className="text-[1.4rem] 2xl:text-[1.6rem]">
 
                     <input className="mr-[0.3rem]" type="radio" name="conteudo" id="filme" onClick={mudaPraFilme}/>
                     Filme
                 </label>
 
-                <label className="text-[1.4rem]">
+                <label className="text-[1.4rem] lg:text-[1.6rem]">
                     <input className="mr-[0.3rem]" type="radio" name="conteudo" id="serie" onClick={mudaPraSerie}/>
                     Série
                 </label>
@@ -61,7 +61,7 @@ export const CadastraConteudo = () => {
 
                 <Input textoLabel={"Classificação etária"} idInput={"classificacaoEtaria"} placeholder={"Digite a Classificação etária"} onChange={atualizaFaixaEtaria}/>
 
-                <button type="submit" className="bg-vermelho text-branco rounded-[2rem] w-[50%] m-auto mt-[1rem] p-[0.7rem] text-[1.4rem]">
+                <button type="submit" className="bg-vermelho text-branco rounded-[2rem] w-[50%] m-auto mt-[1rem] p-[0.7rem] text-[1.4rem] 2xl:text-[1.6rem]">
                     Cadastrar Conteúdo
                 </button>
                 </form>
@@ -71,7 +71,7 @@ export const CadastraConteudo = () => {
 
         ): (
             <div className="flex flex-col gap-[1rem] p-[1rem] items-center justify-center">
-                <p className="text-[1.5rem] text-center cursor-not-allowed m-auto">Você não pode cadastrar conteúdo, porque você não está cadastrado no sistema, cadastre-se e tente novamente</p>
+                <p className="text-[1.5rem] 2xl:text-[1.7rem] text-center cursor-not-allowed m-auto">Você não pode cadastrar conteúdo, porque você não está cadastrado no sistema, cadastre-se e tente novamente</p>
             </div>
         )}
         

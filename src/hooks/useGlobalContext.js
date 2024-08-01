@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalContext"
-import {login} from "../services/auth/index"
+import {cadastre, login} from "../services/auth/index"
 
 export const useGlobalContext = () => {
     const navigate = useNavigate();
@@ -47,17 +47,16 @@ export const useGlobalContext = () => {
         } else {
             e.preventDefault()
             try {
-                const token = await cadastrar(email, senha);
-
-                setApiKey(token)
-                console.log(apiKey);
+                const response = await cadastre(email, senha);
+                
+                console.log(response);
                 console.log("O email: " + email);
                 console.log("A senha: " + senha);
-                //navigate("/admin/opcoes")
+                navigate("/login")
 
 
             } catch (e) {
-                console.log("Deu erro ao fazer login: " + e);
+                console.log("Deu erro ao fazer cadastro: " + e);
             }
         }
     }

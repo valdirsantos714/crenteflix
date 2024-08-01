@@ -16,7 +16,7 @@ export const Header = () => {
         <>
         {/*Header desktop */}
         <header className="hidden lg:relative lg:flex lg:justify-between lg:px-[1rem] lg:pt-[1rem] lg:items-center lg:h-[auto]">
-        <img src="/imgs/logo.png" alt="Logo" className="w-[15%] " />
+        <img src="/imgs/logo.png" alt="Logo" className="w-[15%] 2xl:w-[10%]" />
 
             <nav>
                 <ul className="flex flex-row flex-wrap items-center gap-[1.5rem] 2xl:gap-[2rem]" >

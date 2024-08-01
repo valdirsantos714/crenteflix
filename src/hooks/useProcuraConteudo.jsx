@@ -85,7 +85,7 @@ export const useProcuraConteudo = () => {
             return (
                 <div className="items-center justify-center flex flex-col">
             <div className="w-[24px] h-[24px] p-[1rem] animate-spin  border-[10px] border-vermelho border-b-transparent bg-transparent rounded-[50%]"></div>
-            <p className="pt-[1rem] text-center">Carregando...</p>
+            <p className="pt-[1rem] text-center text-[1.2rem] 2xl:text-[1.6rem]">Carregando...</p>
             </div>
         )
         }
@@ -109,7 +109,7 @@ export const useProcuraConteudo = () => {
             return (
                 <div className="items-center justify-center flex flex-col">
             <div className="w-[24px] h-[24px] p-[1rem] animate-spin  border-[10px] border-vermelho border-b-transparent bg-transparent rounded-[50%]"></div>
-            <p className="pt-[1rem] text-center">Carregando...</p>
+            <p className="pt-[1rem] text-center text-[1.2rem] 2xl:text-[1.6rem]">Carregando...</p>
             </div>
         )
         }

@@ -28,7 +28,7 @@ export const login =  async (email, senha) => {
 }
 
 
-export const cadastrar =  async (email, senha) => {
+export const cadastre =  async (email, senha) => {
 
     const obj = {
         login: email,
@@ -47,8 +47,8 @@ export const cadastrar =  async (email, senha) => {
 
         //Tá funcionando
 
-        const token = await response.json();
-        return await token.tokenJWT;
+        const resposta = await response.json();
+        return resposta;
 
     } catch(e) {
         console.log("Deu erro ao fazer cadastro "+ e);
