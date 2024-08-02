@@ -1,9 +1,11 @@
+import { Footer } from "../../components/Footer"
 import { useProcuraConteudo } from "../../hooks/useProcuraConteudo"
 
 export const Series = () => {
 
     const {amostraSeries} = useProcuraConteudo()
     return (
+        <>
         <main>
         
             <section className="p-[1rem]" >
@@ -14,13 +16,16 @@ export const Series = () => {
             </section>
 
 
-            <section className="" >
+            <section className="min-h-[80vh]" >
                 <ul className=" flex flex-row items-center justify-center   w-full flex-wrap text-center p-[1rem]">
                     {amostraSeries()}
                 </ul>
 
             </section>
         </main>
+
+        <Footer/>
+        </>
 
     )
 }

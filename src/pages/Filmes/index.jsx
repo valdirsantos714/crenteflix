@@ -1,3 +1,4 @@
+import { Footer } from "../../components/Footer"
 import { useProcuraConteudo } from "../../hooks/useProcuraConteudo"
 
 export const Filmes = () => {
@@ -5,6 +6,7 @@ export const Filmes = () => {
     const {amostraFilmes} = useProcuraConteudo()
 
     return (
+        <>
         <main>
             <section className="p-[1rem]" >
                 <div className="flex flex-col gap-[1rem] items-center">
@@ -14,12 +16,15 @@ export const Filmes = () => {
             </section>
 
 
-            <section className="" >
+            <section className="min-h-[80vh]" >
                 <ul className=" flex flex-row items-center justify-center   w-full flex-wrap text-center p-[1rem]">
                     {amostraFilmes()}
                 </ul>
 
             </section>
         </main>
+
+        <Footer/>
+        </>
     )
 }

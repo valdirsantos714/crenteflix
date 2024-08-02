@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { Input } from "../../components/Input"
 import { useCadastroConteudo } from "../../hooks/useCadastroConteudo"
 import { GlobalContext } from "../../context/GlobalContext"
+import { Footer } from "../../components/Footer"
 
 export const CadastraConteudo = () => {
 
@@ -68,11 +69,12 @@ export const CadastraConteudo = () => {
         </main>
 
         ): (
-            <div className="flex flex-col gap-[1rem] p-[1rem] items-center justify-center">
-                <p className="text-[1.5rem] 2xl:text-[1.7rem] text-center cursor-not-allowed m-auto">Você não pode cadastrar conteúdo, porque você não está cadastrado no sistema, cadastre-se e tente novamente</p>
+            <div className="flex flex-col gap-[1rem] p-[1rem] items-center justify-center min-h-[95vh] lg:w-[50%] lg:m-auto">
+                <p className="text-[1.5rem] 2xl:text-[1.8rem] 2xl:w-[50%] text-center cursor-not-allowed m-auto">Você não pode cadastrar conteúdo, porque você não está cadastrado no sistema, cadastre-se e tente novamente</p>
             </div>
         )}
         
+        <Footer/>
                
         </>
 

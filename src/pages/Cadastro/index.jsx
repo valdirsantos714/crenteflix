@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom"
 import {useGlobalContext} from "../../hooks/useGlobalContext"
+import { Footer } from "../../components/Footer"
 
 export const Cadastro = () => {
     const {atualizaEmail, atualizaSenha, cadastrar} = useGlobalContext()
 
 
     return (
+        <>
         <main >
         <section className="p-[1rem]" >
-        <div className="flex flex-col gap-[1rem] min-h-[80vh] items-center justify-center">
+        <div className="flex flex-col gap-[1rem] items-center justify-center min-h-[85vh]">
             <h2 className="text-[2rem] 2xl:text-[2.5rem] font-bold">Cadastro</h2>
             <p className="text-[1.4rem] text-center 2xl:text-[2rem]">Se cadastre antes de enviar o filme ou série</p>
             
@@ -29,6 +31,9 @@ export const Cadastro = () => {
             </div>
         </section>
     </main>
+    <Footer/>
+    </>
     )
+
 
 }

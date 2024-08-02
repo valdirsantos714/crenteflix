@@ -1,5 +1,6 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link, Outlet } from "react-router-dom"
+import {GlobalContext} from "../../context/GlobalContext"
 
 export const Header = () => {
 
@@ -12,6 +13,9 @@ export const Header = () => {
             setAbrirLista(true)
         }
     }
+
+    const {apiKey} = useContext(GlobalContext)
+
     return (
         <>
         {/*Header desktop */}
@@ -20,24 +24,46 @@ export const Header = () => {
 
             <nav>
                 <ul className="flex flex-row flex-wrap items-center gap-[1.5rem] 2xl:gap-[2rem]" >
-
-                    <li className="hover:cursor-pointer hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem]">
                     
-                        <Link to={"/filmes"}>Filmes</Link>
-                    </li>
+                    <Link to={"/filmes"}>
+                        <li className="hover:cursor-pointer hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem]">
+                    
+                        Filmes
+                         </li>
+                    </Link>
 
-                    <li className="hover:cursor-pointer hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem]">
+                    <Link to={"/series"}>
+                        <li className="hover:cursor-pointer hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem]">
                         
-                        <Link to={"/series"}>Séries</Link>
-                    </li>
+                        Séries
+                        </li>
+                    </Link>
 
-                    <li className="hover:cursor-pointer hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem] p-[0.5rem] rounded-lg text-center">
-                        <Link to={"/"}>Ir para o início</Link>
-                    </li>
+                    <Link to={"/"}>
+                        <li className="hover:cursor-pointer hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem] p-[0.5rem] rounded-lg text-center">
+                        Ir para o início
+                        </li>
+                    </Link>
 
-                    <li className="hover:cursor-pointer bg-vermelho text-branco hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem] p-[0.5rem] rounded-lg text-center">
-                        <Link className="text-branco bg-vermelho"  to={"/login"}>Adicionar filmes ou séries</Link>
-                    </li>
+                    {apiKey === "" ? (
+                        <Link className="text-branco bg-vermelho"  to={"/login"}>
+                            <li className="hover:cursor-pointer bg-vermelho text-branco hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem] p-[0.5rem] rounded-lg text-center">
+                            
+                            Adicionar filmes ou séries
+                            </li>
+                        </Link>
+                     
+
+                    ): (
+                        <Link className="text-branco bg-vermelho"  to={"/cadastroconteudo"}>
+                            <li className="hover:cursor-pointer bg-vermelho text-branco hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem] p-[0.5rem] rounded-lg text-center">
+                           
+                            Adicionar filmes ou séries
+                            </li>
+                        </Link>
+                    
+
+                    )}
 
                     
                 </ul>
@@ -57,21 +83,42 @@ export const Header = () => {
                 <nav className="absolute top-full left-2 p-[0.2rem] w-[70%]">
                     <ul className="flex flex-col flex-wrap gap-[0.5rem]  p-[0.5rem] rounded-[0.7rem] text-center">
                         
-                        <li className="hover:cursor-pointer hover:opacity-[83%] text-[1.4rem] 2xl:text-[1.8rem] border-[2px] border-vermelho rounded-[0.4rem] p-[0.3rem]" onClick={revelaLista} >
-                            <Link to={"/"} onClick={revelaLista}>Ir para o início</Link>
-                        </li>
+                        <Link to={"/"} onClick={revelaLista}>
+                            <li className="hover:cursor-pointer hover:opacity-[83%] text-[1.4rem] 2xl:text-[1.8rem] border-[2px] border-vermelho rounded-[0.4rem] p-[0.3rem]" onClick={revelaLista} >
+                            Ir para o início
+                            </li>
+                        </Link>
 
-                        <li className="hover:cursor-pointer hover:opacity-[83%] text-[1.4rem] 2xl:text-[1.8rem] border-[2px] border-vermelho rounded-[0.4rem] p-[0.3rem]" onClick={revelaLista} >
-                            <Link to={"/filmes"} onClick={revelaLista}>Ver filmes</Link>
-                        </li>
+                        <Link to={"/filmes"} onClick={revelaLista}>
+                            <li className="hover:cursor-pointer hover:opacity-[83%] text-[1.4rem] 2xl:text-[1.8rem] border-[2px] border-vermelho rounded-[0.4rem] p-[0.3rem]" onClick={revelaLista} >
+                            Ver filmes
+                            </li>
+                        </Link>
 
-                        <li className="hover:cursor-pointer hover:opacity-[83%] text-[1.4rem] 2xl:text-[1.8rem] border-[2px] border-vermelho rounded-[0.4rem] p-[0.3rem]" onClick={revelaLista} >
-                            <Link to={"/series"} onClick={revelaLista}>Ver séries</Link>
-                        </li>
+                        <Link to={"/series"} onClick={revelaLista}>
+                            <li className="hover:cursor-pointer hover:opacity-[83%] text-[1.4rem] 2xl:text-[1.8rem] border-[2px] border-vermelho rounded-[0.4rem] p-[0.3rem]" onClick={revelaLista} >
 
-                        <li className="hover:cursor-pointer hover:opacity-[83%] text-[1.4rem] 2xl:text-[1.8rem] border-[2px] border-vermelho rounded-[0.4rem] p-[0.3rem]" onClick={revelaLista} >
-                            <Link to={"/login"} onClick={revelaLista}>Cadastrar filmes ou séries</Link>
-                        </li>
+                            Ver séries
+                            </li>
+                        </Link>
+                        
+
+                        {apiKey === "" ? (
+                            <Link to={"/login"} onClick={revelaLista}>
+                                <li className="hover:cursor-pointer hover:opacity-[83%] text-[1.4rem] 2xl:text-[1.8rem] border-[2px] border-vermelho rounded-[0.4rem] p-[0.3rem]" onClick={revelaLista} >
+                             Cadastrar filmes ou séries
+                                </li>
+                             </Link>
+                        
+                        ): (
+                            <Link to={"/cadastroconteudo"} onClick={revelaLista}>
+                                <li className="hover:cursor-pointer hover:opacity-[83%] text-[1.4rem] 2xl:text-[1.8rem] border-[2px] border-vermelho rounded-[0.4rem] p-[0.3rem]" onClick={revelaLista} >
+                                Cadastrar filmes ou séries
+                                </li>
+                            </Link>
+                        
+                        )}
+                       
 
                     </ul>
                 </nav>

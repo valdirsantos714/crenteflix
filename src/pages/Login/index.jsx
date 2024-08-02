@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { useGlobalContext } from "../../hooks/useGlobalContext"
 import { useContext } from "react"
 import { GlobalContext } from "../../context/GlobalContext"
+import { Footer } from "../../components/Footer"
 
 export const Login = () => {
     const {atualizaEmail, atualizaSenha, logar} = useGlobalContext()
@@ -10,7 +11,7 @@ export const Login = () => {
     return (
         <main >
         <section className="p-[1rem]" >
-        <div className="flex flex-col gap-[1rem] min-h-[80vh] items-center justify-center">
+        <div className="flex flex-col gap-[1rem] min-h-[85vh] items-center justify-center">
             <h2 className="text-[2rem] 2xl:text-[2.5rem] font-bold">Login</h2>
             <p className="text-[1.4rem] text-center 2xl:text-[2rem]">Faça login antes de enviar o filme ou série</p>
             
@@ -29,6 +30,7 @@ export const Login = () => {
                 <Link to={"/cadastro"} className="mt-[0.5rem]  text-[1.2rem] text-center 2xl:text-[1.8rem]">Não tem conta então <span className="bg-vermelho text-branco p-[0.2rem] 2xl:p-[0.5rem] rounded-lg">Cadastre-se</span></Link>
             </form>
             </div>
+            <Footer/>
         </section>
     </main>
     )
