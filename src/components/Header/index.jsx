@@ -23,12 +23,12 @@ export const Header = () => {
 
                     <li className="hover:cursor-pointer hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem]">
                     
-                        <Link to={"/cadastroconteudo"}>Filmes</Link>
+                        <Link to={"/filmes"}>Filmes</Link>
                     </li>
 
                     <li className="hover:cursor-pointer hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem]">
                         
-                        <Link to={"/cadastroconteudo"}>Séries</Link>
+                        <Link to={"/series"}>Séries</Link>
                     </li>
 
                     <li className="hover:cursor-pointer hover:opacity-[85%] text-[1.4rem] 2xl:text-[1.8rem] p-[0.5rem] rounded-lg text-center">

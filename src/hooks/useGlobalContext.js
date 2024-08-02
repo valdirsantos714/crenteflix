@@ -21,9 +21,6 @@ export const useGlobalContext = () => {
                 const token = await login(email, senha);
 
                 setApiKey(token)
-                console.log(apiKey);
-                console.log("O email: " + email);
-                console.log("A senha: " + senha);
                 
                 if (apiKey != "") {
                     navigate("/cadastroconteudo")
@@ -50,8 +47,6 @@ export const useGlobalContext = () => {
                 const response = await cadastre(email, senha);
                 
                 console.log(response);
-                console.log("O email: " + email);
-                console.log("A senha: " + senha);
                 navigate("/login")
 
 

@@ -55,7 +55,6 @@ export const useCadastroConteudo = () => {
 
     const atualizaFaixaEtaria= (e) => {
         atualizaValores(e, setFaixaEtaria)
-        console.log(faixaEtaria);
     }
 
     return {

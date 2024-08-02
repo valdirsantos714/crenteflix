@@ -21,7 +21,6 @@ export const useProcuraConteudo = () => {
             const data = await findAll();
 
             setFilmes(data)
-            console.log(data);
 
         } catch (error) {
             console.log("Não conseguiu achar nenhum conteudo");
@@ -35,7 +34,6 @@ export const useProcuraConteudo = () => {
             const data = await findFilmes();
 
             setFilmes(data)
-            console.log(data);
 
         } catch (error) {
             console.log("Não conseguiu achar nenhum conteudo");
@@ -48,7 +46,6 @@ export const useProcuraConteudo = () => {
             const data = await findSeries();
 
             setSeries(data)
-            console.log(series);
 
         } catch (error) {
             console.log("Não conseguiu achar nenhum conteudo");
@@ -72,9 +69,9 @@ export const useProcuraConteudo = () => {
         if (Array.isArray(filmes)) {
             return filmes.map((f) => (
                     
-                <li key={f.id} className=" w-[50%]">
+                <li key={f.id} className=" w-[50%] lg:w-[20%]">
                     <Link to={`/conteudo/${f.id}`}>
-                        <img src={`${f.imgUrl}`} alt="Imagem do filme" className="w-[80%] m-auto mb-[0.7rem]" />
+                        <img src={`${f.imgUrl}`} alt="Imagem do filme" className="w-[80%] m-auto mb-[0.7rem] lg:w-full pr-[1.5rem]" />
                     </Link>
                 </li>
 
@@ -96,9 +93,9 @@ export const useProcuraConteudo = () => {
         if (Array.isArray(series)) {
             return series.map((s) => (
                     
-                <li key={s.id} className=" w-[50%]">
+                <li key={s.id} className=" w-[50%] lg:w-[20%]">
                     <Link to={`/conteudo/${s.id}`}>
-                        <img src={`${s.imgUrl}`} alt="Imagem do filme" className="w-[80%] m-auto mb-[0.7rem]" />
+                        <img src={`${s.imgUrl}`} alt="Imagem do filme" className="w-[80%] m-auto mb-[0.7rem] lg:w-full pr-[1.5rem]" />
                     </Link>
                 </li>
 
