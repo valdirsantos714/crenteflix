@@ -39,7 +39,11 @@ export const InfoConteudo = () => {
                 <h2 className="text-[2rem] font-bold pt-[1rem] pb-[0.5rem] text-center lg:text-[2.2rem]">{video.nome}</h2>
 
                 {video.duracaoFilme && (
-                    <p className="text-[1.3rem] pb-[0.7rem] lg:text-[1.4rem] 2xl:text-[1.6rem]">Ano de lançamento: {video.duracaoFilme}</p>
+                    <p className="text-[1.3rem] pb-[0.7rem] lg:text-[1.4rem] 2xl:text-[1.6rem]">Duração do filme: {video.duracaoFilme}</p>
+                )}
+
+                {video.anoLancamento && (
+                    <p className="text-[1.3rem] pb-[0.7rem] lg:text-[1.4rem] 2xl:text-[1.6rem]">Ano de lançamento: {video.anoLancamento}</p>
                 )}
 
                 {video.faixaEtaria && (
