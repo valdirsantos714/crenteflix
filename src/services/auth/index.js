@@ -23,6 +23,7 @@ export const login =  async (email, senha) => {
         return await token.tokenJWT;
 
     } catch(e) {
+        alert("Login ou senha incorretos, tente novamente!")
         console.log("Deu erro ao fazer login "+ e);
     }
 }

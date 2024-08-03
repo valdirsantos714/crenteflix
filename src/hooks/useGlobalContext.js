@@ -24,10 +24,7 @@ export const useGlobalContext = () => {
                 
                 if (apiKey != "") {
                     navigate("/cadastroconteudo")
-                } else {
-                    alert("Login ou senha inválidos!")
-                    throw new Error("Login ou senha inválidos!")
-                }
+                } 
                 
 
 
