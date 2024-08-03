@@ -1,6 +1,6 @@
 # CrenteFlix
 
-CrenteFlix é uma plataforma que permite aos usuários acessar e cadastrar filmes e séries evangélicos gratuitos. 
+CrenteFlix é uma plataforma que permite aos usuários acessar e cadastrar filmes e séries evangélicos gratuitos. Abaixo você encontrará informações detalhadas de como executar esse projeto localmente, mas se preferir você pode acessar a versão online [clicando aqui](https://crenteflix.netlify.app)
 
 ## Funcionalidades
 
