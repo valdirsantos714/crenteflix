@@ -1,1 +1,1 @@
-export const api = "https://crenteflix-api-production.up.railway.app"
+export const api = "https://crenteflix-api.onrender.com"
